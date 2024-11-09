@@ -53,7 +53,6 @@ $(LPEG_OBJECT): $(LPEG) $(LUAJIT)
 	cd ${LPEG} && $(MAKE) lpeg.o LUADIR=../../$(LUAJIT)/src
 
 $(LUAJIT):
-	@tools/download $(LUAJIT_URL) $(LUAJIT_CHECKSUM) tar xzf {file} -C deps
 	@perl -piorig -e 's/LUA_IDSIZE\s*\d+/LUA_IDSIZE 120/' $(LUAJIT)/src/luaconf.h
 
 $(LUAJIT_ARCHIVE): $(LUAJIT)
