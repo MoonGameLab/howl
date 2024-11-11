@@ -5,8 +5,7 @@ Gtk = require 'ljglibs.gtk'
 Pango = require 'ljglibs.pango'
 
 class IndicatorBar
-  new: (cls) =>
-    error('Missing argument #1 (id)', 2) if not cls
+  new: =>
     @box = Gtk.Box {
       height_request: 20
       spacing: 10

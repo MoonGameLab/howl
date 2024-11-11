@@ -12,6 +12,16 @@ ffi = require 'ffi'
 append = table.insert
 ffi_cast = ffi.cast
 {:max} = math
+{:config} = howl
+
+-- Config
+with config
+  .define
+    name: 'footer_visible'
+    description: 'Whether the footer is visible'
+    type_of: 'boolean'
+    scope: 'global'
+    default: true
 
 allocations_differ = (a1, a2) ->
   a1.x != a2.x or a1.y != a2.y or a1.width != a2.width or a1.height != a2.height
@@ -89,6 +99,7 @@ class ContentBox extends PropertyObject
   _draw: (_, cr) =>
     cr\save!
     clip = cr.clip_extents
+    @_sync_footer_visibility!
     bg = @main.background
     bg\draw cr, should_clip: true, :clip
     cr\translate bg.padding_left, bg.padding_top
@@ -167,3 +178,6 @@ class ContentBox extends PropertyObject
     bar.background\resize nil, allocation.height + height_adjust
     with allocation
       bar.allocation = x: .x, y: .y, width: .width, height: .height
+
+  _sync_footer_visibility: =>
+    if @footer then @footer.widget.visible = config.get 'footer_visible'
