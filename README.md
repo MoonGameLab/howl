@@ -1,4 +1,4 @@
-# The Howl editor
+# The Howl editor <custom for personal use>
 
 [![Build Status](https://travis-ci.org/howl-editor/howl.png?branch=master)](https://travis-ci.org/howl-editor/howl)
 
