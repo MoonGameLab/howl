@@ -57,7 +57,7 @@ content_box = {
 
 return {
   window:
-    outer_padding: 6
+    outer_padding: 2
     background:
       image: theme_file('circle.png')
 
