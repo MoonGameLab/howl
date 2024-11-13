@@ -7,7 +7,7 @@ config.define
   description: 'Whether buffer icons are displayed'
   scope: 'global'
   type_of: 'boolean'
-  default: true
+  default: false
 
 icon.define_default 'buffer', 'font-awesome-square'
 icon.define_default 'buffer-modified', 'font-awesome-pencil-square-o'
