@@ -32,6 +32,9 @@ watchers = {}
 -- Currently only values set for global scope (empty string) values are saved.
 saved_scopes = {''}
 
+-- holds all the presets
+presets = {}
+
 predefined_types =
   boolean: {
     options: { true, false }
@@ -143,6 +146,16 @@ define = (var = {}) ->
 
   defs[var.name] = var
   broadcast var.name, var.default, false
+
+define_presets = (name, valuesList) ->
+  presets[name] = {} if presets[name] == nil
+
+  for k, v in pairs valuesList
+    presets[name][k] = v
+
+get_preset = (subModule, name) ->
+  presets[subModule][name]
+
 
 define_layer = (name, def={}) ->
   -- Register a new layer identified by string name.
@@ -378,6 +391,8 @@ config = {
   :merge
   :delete
   :validate
+  :define_presets
+  :get_preset
 }
 
 -- Allow getting and setting config values directly on this module.

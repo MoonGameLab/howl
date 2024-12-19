@@ -4,6 +4,7 @@
 {:PropertyObject} = howl.util.moon
 {:highlight, :style, :StyledText} = howl.ui
 {:Matcher} = howl.util
+{:get_preset} = howl.config
 {:max, :min} = math
 {:tostring} = _G
 
@@ -49,9 +50,8 @@ class List extends PropertyObject
   new: (@matcher, opts={}) =>
     super!
     @opts = moon.copy opts
-
     with @opts
-      .filler_text or= '~'
+      .filler_text or= get_preset('list', 'filler_text') or '+'
 
     @_max_rows = math.huge
     @_min_rows = 1
