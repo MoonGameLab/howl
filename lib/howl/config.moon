@@ -147,10 +147,12 @@ define = (var = {}) ->
   defs[var.name] = var
   broadcast var.name, var.default, false
 
-define_presets = (name, valuesList) ->
+define_presets = (name, module) ->
+  error 'name not specified for preset', 2 if not name
+  error 'preset module not specified', 2 if not module
   presets[name] = {} if presets[name] == nil
 
-  for k, v in pairs valuesList
+  for k, v in pairs module
     presets[name][k] = v
 
 get_preset = (subModule, name) ->

@@ -10,6 +10,8 @@ load_preset = (file) ->
 return PropertyTable {
 
   register: (name, file) ->
+    error 'name not specified for preset', 2 if not name
+    error 'file not specified for preset', 2 if not file
     status, ret = pcall load_preset, file
     error "Error applying preset '#{name}: #{ret}'" if not status
 
