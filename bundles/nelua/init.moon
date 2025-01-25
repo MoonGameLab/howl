@@ -2,7 +2,7 @@ mode_reg =
   name: 'nelua'
   aliases: { 'nelua' }
   extensions: { 'nelua' }
-  create: -> bundle_load('nlua_mode')
+  create: -> bundle_load('nelua_mode')
   parent: 'curly_mode'
 
 howl.mode.register mode_reg
