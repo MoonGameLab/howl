@@ -380,4 +380,9 @@ common_auto_pairs = {
       }
     }
 
+  nelua:
+    extensions: { 'nelua' }
+    comment_syntax: '--'
+    auto_pairs: common_auto_pairs
+
 }

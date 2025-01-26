@@ -18,6 +18,4 @@ return PropertyTable {
     for module, presets in pairs ret
       howl.config.define_presets module, presets
 
-  get: (name) ->
-
 }
