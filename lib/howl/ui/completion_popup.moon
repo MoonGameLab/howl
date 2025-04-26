@@ -19,7 +19,7 @@ class CompletionPopup extends MenuPopup
   @property empty: get: => #@items == 0
 
   complete: =>
-    return if @active
+    return if @showing
     @active = true
     @_init_completer!
     @_load_completions!
